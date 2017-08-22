@@ -1,0 +1,15 @@
+<div class="jumbotron">
+  <h1 class="display-3">Open Weather</h1>
+  <p class="lead">Simple weather app to display the current weather in a given location.</p>
+  <hr class="my-4">
+  <p>Get current weather and forecast in your city.</p>
+</div>
+
+<div class="row justify-content-center">
+  <form class="form-inline">
+    <div class="form-group mx-sm-3">
+      <%= text_field_tag "city", "", class: "form-control", placeholder: "Your City name" %>
+    </div>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  </form>
+</div>
