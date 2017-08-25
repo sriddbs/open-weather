@@ -2,6 +2,7 @@ module ApplicationHelper
   require 'temparature'
 
   def weather_info_html response
+    return "" if response.blank?
     if response["cod"] == "404"
       content_tag(:div, nil, class: "alert alert-info") do
         concat(content_tag(:div, "Oops! Could not find weather data", id: "city-not-found"))
