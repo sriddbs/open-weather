@@ -6,10 +6,15 @@
 </div>
 
 <div class="row justify-content-center">
-  <form class="form-inline">
+  <%= form_tag :find_weather, class: "form-inline", method: :get do %>
     <div class="form-group mx-sm-3">
       <%= text_field_tag "city", "", class: "form-control", placeholder: "Your City name" %>
     </div>
     <%= submit_tag "Search", class: "btn btn-primary" %>
-  </form>
+  <% end %>
+</div>
+
+<div class="row justify-content-center">
+  <!-- helper method to display weather details -->
+  <%= weather_info_html(@response) %>
 </div>

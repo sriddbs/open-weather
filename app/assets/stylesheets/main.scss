@@ -2,3 +2,6 @@
   background: image-url('/assets/cloud.jpg') top center no-repeat fixed;
   color: white;
 }
+.row + .row {
+    margin-top: 1rem;
+}
