@@ -1,24 +1,33 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Objective
 
-Things you may want to cover:
+A simple weather app to display the current weather in a given location to the user.
 
-* Ruby version
+This app uses Open Weather Map JSON API (http://openweathermap.org/API) to get real weather data.
 
-* System dependencies
+The app should:
 
-* Configuration
+- be able to display the weather at random geographic locations
+- have a form with city and country that fetches and displays the weather in this city
+  - optionally: cache the fetched weather data
+- gracefully handle the case where the city could not be found (display the information to the user)
 
-* Database creation
+# Development Environment
 
-* Database initialization
+* Ruby 2.2.2
 
-* How to run the test suite
+* Rails 5.0
 
-* Services (job queues, cache servers, search engines, etc.)
+* Ubuntu 16.04
 
-* Deployment instructions
+* RSpec, Cucumber
 
-* ...
+# Workflow
+
+  On the home page is a form/textbox where the user can enter city and country code to get the current weather information
+
+# Tests
+
+* bundle exec rspec
+* bundle exec cucumber
