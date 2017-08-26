@@ -8,10 +8,9 @@ When(/^I enter the city and\/or country name$/) do
 end
 
 Then(/^the application should display the weather info in the given city and country$/) do
-  response = WeatherApi.connect("weather", { q: "Bangalore, IN" })
-  city_name = [response["name"], response["sys"]["country"]].join(", ")
-  weather = response["weather"].first
+  weather = Weather.new("Bangalore, IN")
+  weather.get_weather
 
-  find(:xpath, '//div[@class="weather-main"]').should have_content([city_name, [weather["main"], weather["description"]]].join(" "))
-  find(:xpath, '//div[@class="geo-coords"]').should have_content([response["coord"]["lat"], response["coord"]["lon"]].join(", "))
+  find(:xpath, '//div[@class="weather-main"]').should have_content([[weather.city, weather.country_code].join(", "), weather.description].join(" "))
+  find(:xpath, '//div[@class="geo-coords"]').should have_content([weather.lat, weather.lng].join(", "))
 end
