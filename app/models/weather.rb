@@ -12,7 +12,9 @@ class Weather
   end
 
   def get_weather
-    @weather_api_response = WeatherApi.connect("weather", { q: @city })
+    @weather_api_response = Rails.cache.fetch("#{@city}_weather") do
+      WeatherApi.connect("weather", { q: @city })
+    end
     if @weather_api_response["cod"] == "404" || @weather_api_response["cod"] == "400"
       @error_message = @weather_api_response["message"]
     else
